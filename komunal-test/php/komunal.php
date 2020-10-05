@@ -30,27 +30,29 @@ class komunal
 
       $search = '';
       if ($search_input != '') {
-         $search = "WHERE ( nama LIKE '%$search_input%' OR idprev like '%$search_input%' OR id like '%$search_input%' )";
-      }
-
-
-      $sql = "SELECT * FROM komunal $search ORDER BY id desc LIMIT $page,$perpage";
-
-      $query =  $this->conn->query($sql);
-      $komunal = array();
-      if ($query->num_rows > 0) {
-         while ($row = $query->fetch_assoc()) {
-            $komunal['komunal_data'][] = $row;
+         $search = "CALL sp_komunal('$search_input')";
+         $query =  $this->conn->query($search);
+         $komunal = array();
+         if ($query->num_rows > 0) {
+            while ($row = $query->fetch_assoc()) {
+               $komunal['komunal_data'][] = $row;
+            }
          }
+      } else {
+         $search = "WHERE ( nama LIKE '%$search_input%' OR idprev like '%$search_input%' OR id like '%$search_input%' )";
+         $sql = "SELECT * FROM komunal $search ORDER BY id desc LIMIT $page,$perpage";
+         $query =  $this->conn->query($sql);
+         $komunal = array();
+         if ($query->num_rows > 0) {
+            while ($row = $query->fetch_assoc()) {
+               $komunal['komunal_data'][] = $row;
+            }
+         }
+         $count_sql = "SELECT COUNT(*) FROM komunal $search";
+         $query =  $this->conn->query($count_sql);
+         $total = mysqli_fetch_row($query);
+         $komunal['total'][] = $total;
       }
-      
-
-      $count_sql = "SELECT COUNT(*) FROM komunal $search";
-      $query =  $this->conn->query($count_sql);
-      $total = mysqli_fetch_row($query);
-      $komunal['total'][] = $total;
-
-
       return $komunal;
    }
 

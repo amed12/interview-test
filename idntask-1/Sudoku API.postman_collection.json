@@ -1,0 +1,97 @@
+{
+	"info": {
+		"_postman_id": "a8016b2b-7acf-4449-b2eb-03b12f737cee",
+		"name": "Sudoku API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Post-SudokuSolver",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Access-Control-Allow-Origin",
+						"value": "*",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Access-Control-Allow-Methods",
+						"value": "POST",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Access-Control-Allow-Headers",
+						"value": "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"arraysudoku\" : [\r\n\t\t\t\t\t\t[0,3,0,0,0,0,8,0,0],\r\n\t\t\t\t\t \t[0,0,6,3,0,0,0,4,2],\r\n\t\t\t\t\t \t[2,0,8,6,7,0,3,0,5],\r\n\t\t\t\t\t\t[8,5,0,0,1,0,6,2,0],\r\n\t\t\t\t\t\t[0,0,7,0,0,0,9,0,0],\r\n\t\t\t\t\t\t[0,4,9,0,5,0,0,1,8],\r\n\t\t\t\t\t\t[9,0,5,0,4,7,2,0,6],\r\n\t\t\t\t\t\t[3,7,0,0,0,6,4,0,0],\r\n\t\t\t\t\t\t[0,0,1,0,0,0,0,7,0]\r\n\t\t\t\t\t]\r\n}"
+				},
+				"url": {
+					"raw": "https://idntask.localhost/idntask-1/api/sudokusolver.php",
+					"protocol": "https",
+					"host": [
+						"idntask",
+						"localhost"
+					],
+					"path": [
+						"idntask-1",
+						"api",
+						"sudokusolver.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post-SudokuSolverChar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "06d2bb9a-e55f-431e-b124-98ce9a7c4fd8",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "99d9d036-7a45-484d-9164-35ba6cdd3c7c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
