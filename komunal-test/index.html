@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="example_codeenable">
+
+<head>
+
+    <title ng-bind-template="{{title}}"></title>
+
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <base href="http://localhost/komunal-test/">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
+    <script data-require="ui-bootstrap@*" data-semver="0.12.1"
+        src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
+
+    <script src="./app/app.js"></script>
+    <script src="./controllers/komunal_controller.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="./assets/css/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#   ">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <!--                          <li> <img src="./assets/images/ce.png" alt="CE" class="tlogo"> </li>-->
+                    <li class="active"><a href="index.php">Home</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container ">
+        <div id="header">
+            <h1 class="page-header">1. Buat store procedure dgn return hari kerja berikutnya.</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <label>Tgl Awal</label>
+                <div class="input-group date">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-th"></span>
+                    </div>
+                    <input placeholder="masukkan tanggal Awal" type="text" class="form-control datepicker"
+                        name="tgl_awal">
+                </div>
+            </div>
+            <div class="col-md-4" na>
+                <label>Output </label>
+
+            </div>
+        </div>
+        <div class="header">
+            <h1 class="page-header">2. Buat program utk menghitung jumlah total (sum) semua bilangan self number antara
+                0 dan 5000</h1>
+        </div>
+        <div class="row">
+            <button onclick="pageRedirect()">Click me to do action</button>
+        </div>
+        <div id="header">
+            <h1 class="page-header">3. Buat query / store procedure untuk menampilkan data yg masih memiliki relasir
+            </h1>
+        </div>
+        <div class="row content">
+
+            <div ui-view> .....</div>
+        </div>
+        <div id="header">
+            <h1 class="page-header">4. Buat programs menggunakan Angular</h1>
+        </div>
+        <div class="row">
+        </div>
+        <div id="header">
+            <h1 class="page-header">5. Buat Program menggunakan Javascript</h1>
+        </div>
+        <div class="row">
+        </div>
+        <div id="header">
+            <h1 class="page-header">6. Buat Program yang menuliskan angka dari 1 sampai 100 sebagai output.</h1>
+        </div>
+        <div class="row">
+            <button id="demoBtn" onclick="myFunction()">Click me to print FizzBuzz</button>
+            <div id="tit"></div>
+        </div>
+
+
+
+
+
+
+    </div>
+
+
+
+
+    <footer class="container-fluid text-center">
+        <p>Komunal Test</p>
+    </footer>
+
+    <script type="text/javascript">
+        var today = new Date();
+        var startDate = new Date(2019, 0, 1);
+        var endDate = new Date(2019, 0, 31);
+        document.getElementById("demoBtn").onclick = function () { myFunction() };
+        function pageRedirect() {
+            window.location.replace("http://localhost/komunal-test/number2.php");
+        }
+        function myFunction() {
+            var foo = new Array(101);
+            // var tit = ["Text 1", "Text 2", "Text 3", "Text 4", "Text 5"];
+            // for (var i in foo) {
+            //     var element = document.createElement("h2");
+            //     element.innerHTML = tit[i];
+            //     $("#tit").append(element);
+            // }
+            for (var i = 1; i < foo.length; i++) {
+
+                switch (true) {
+                    case i % 3 == 0 && i % 5 == 0:
+                        document.write('FizzBuzz' + '<br/>');
+                        break;
+                    case i % 3 == 0:
+                        document.write('Fizz' + '<br/>'); break;
+                    case i % 5 == 0:
+                        day = "Tuesday";
+                        document.write('Buzz' + '<br/>');
+                        break;
+                    default:
+                        document.write('Item: ' + (i) + ' of ' + '100' + '<br/>');
+                }
+
+                // document.write('Item: ' + (i + 1) + ' of ' + foo.length + '<br/>');
+            }
+        }
+
+        $(function () {
+            $(".datepicker").datepicker({
+                format: 'yyyy-mm-dd',
+                autoclose: true,
+                startDate: startDate,
+                endDate: endDate,
+            });
+
+        });
+    </script>
+
+
+</body>
+
+</html>
